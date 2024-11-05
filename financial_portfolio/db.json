@@ -1,0 +1,309 @@
+{
+    "posts": [
+      { "id": "1", "title": "a title", "views": 100 },
+      { "id": "2", "title": "another title", "views": 200 }
+    ],
+    "comments": [
+      { "id": "1", "text": "a comment about post 1", "postId": "1" },
+      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    ],
+    "profile": {
+      "name": "typicode"
+    },
+    "assetAllocation": [
+        {
+          "assetType": "Stocks",
+          "percentage": 40,
+          "details": [
+            {
+              "name": "Apple Inc.",
+              "symbol": "AAPL",
+              "quantity": 100,
+              "currentValue": 15000
+            },
+            {
+              "name": "Microsoft Corp.",
+              "symbol": "MSFT",
+              "quantity": 50,
+              "currentValue": 10000
+            },
+            {
+              "name": "Amazon.com Inc.",
+              "symbol": "AMZN",
+              "quantity": 30,
+              "currentValue": 9000
+            },
+            {
+              "name": "Alphabet Inc.",
+              "symbol": "GOOGL",
+              "quantity": 20,
+              "currentValue": 8000
+            }
+          ]
+        },
+        {
+          "assetType": "Bonds",
+          "percentage": 30,
+          "details": [
+            {
+              "name": "US Treasury Bond",
+              "symbol": "USTB",
+              "quantity": 200,
+              "currentValue": 6000
+            },
+            {
+              "name": "Corporate Bond",
+              "symbol": "CORPB",
+              "quantity": 100,
+              "currentValue": 4000
+            },
+            {
+              "name": "Municipal Bond",
+              "symbol": "MUNIB",
+              "quantity": 150,
+              "currentValue": 4500
+            }
+          ]
+        },
+        {
+          "assetType": "Real Estate",
+          "percentage": 20,
+          "details": [
+            {
+              "name": "Rental Property",
+              "location": "New York",
+              "currentValue": 20000
+            },
+            {
+              "name": "Commercial Property",
+              "location": "San Francisco",
+              "currentValue": 15000
+            }
+          ]
+        },
+        {
+          "assetType": "Commodities",
+          "percentage": 10,
+          "details": [
+            {
+              "name": "Gold",
+              "symbol": "GOLD",
+              "quantity": 50,
+              "currentValue": 5000
+            },
+            {
+              "name": "Silver",
+              "symbol": "SILVER",
+              "quantity": 100,
+              "currentValue": 3000
+            }
+          ]
+        }
+      ],
+      "marketTrends": [
+        {
+          "date": "2023-01-01",
+          "trend": "upward",
+          "percentageChange": 1.5,
+          "details": {
+            "index": "S&P 500",
+            "value": 3800
+          }
+        },
+        {
+          "date": "2023-01-02",
+          "trend": "downward",
+          "percentageChange": -0.5,
+          "details": {
+            "index": "S&P 500",
+            "value": 3781
+          }
+        },
+        {
+          "date": "2023-01-03",
+          "trend": "upward",
+          "percentageChange": 2.0,
+          "details": {
+            "index": "S&P 500",
+            "value": 3856
+          }
+        },
+        {
+          "date": "2023-01-04",
+          "trend": "upward",
+          "percentageChange": 1.2,
+          "details": {
+            "index": "S&P 500",
+            "value": 3902
+          }
+        },
+        {
+          "date": "2023-01-05",
+          "trend": "downward",
+          "percentageChange": -1.0,
+          "details": {
+            "index": "S&P 500",
+            "value": 3863
+          }
+        },
+        {
+          "date": "2023-01-06",
+          "trend": "upward",
+          "percentageChange": 0.8,
+          "details": {
+            "index": "S&P 500",
+            "value": 3894
+          }
+        },
+        {
+          "date": "2023-01-07",
+          "trend": "downward",
+          "percentageChange": -0.3,
+          "details": {
+            "index": "S&P 500",
+            "value": 3882
+          }
+        },
+        {
+          "date": "2023-01-08",
+          "trend": "upward",
+          "percentageChange": 1.5,
+          "details": {
+            "index": "S&P 500",
+            "value": 3940
+          }
+        },
+        {
+          "date": "2023-01-09",
+          "trend": "downward",
+          "percentageChange": -0.7,
+          "details": {
+            "index": "S&P 500",
+            "value": 3912
+          }
+        },
+        {
+          "date": "2023-01-10",
+          "trend": "upward",
+          "percentageChange": 1.0,
+          "details": {
+            "index": "S&P 500",
+            "value": 3951
+          }
+        }
+      ],
+      "performanceMetrics": [
+        {
+          "metric": "CPU Usage",
+          "value": 75,
+          "unit": "%",
+          "timestamp": "2023-01-01T10:00:00Z"
+        },
+        {
+          "metric": "Memory Usage",
+          "value": 60,
+          "unit": "%",
+          "timestamp": "2023-01-01T10:00:00Z"
+        },
+        {
+          "metric": "Disk I/O",
+          "value": 120,
+          "unit": "MB/s",
+          "timestamp": "2023-01-01T10:00:00Z"
+        },
+        {
+          "metric": "Network Throughput",
+          "value": 300,
+          "unit": "Mbps",
+          "timestamp": "2023-01-01T10:00:00Z"
+        },
+        {
+          "metric": "CPU Usage",
+          "value": 80,
+          "unit": "%",
+          "timestamp": "2023-01-01T11:00:00Z"
+        },
+        {
+          "metric": "Memory Usage",
+          "value": 65,
+          "unit": "%",
+          "timestamp": "2023-01-01T11:00:00Z"
+        },
+        {
+          "metric": "Disk I/O",
+          "value": 130,
+          "unit": "MB/s",
+          "timestamp": "2023-01-01T11:00:00Z"
+        },
+        {
+          "metric": "Network Throughput",
+          "value": 320,
+          "unit": "Mbps",
+          "timestamp": "2023-01-01T11:00:00Z"
+        },
+        {
+          "metric": "CPU Usage",
+          "value": 70,
+          "unit": "%",
+          "timestamp": "2023-01-01T12:00:00Z"
+        },
+        {
+          "metric": "Memory Usage",
+          "value": 55,
+          "unit": "%",
+          "timestamp": "2023-01-01T12:00:00Z"
+        }
+      ],
+      "portFolioPerformance":[{
+        "portfolioName": "Stocks",
+        "owner": "John Doe",
+        "lastUpdated": "2023-10-01",
+        "performanceData": {
+          "dates": ["2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05", "2023-01-06"],
+          "portfolioPerformance": [100, 101.5, 101, 102, 103, 104],
+          "benchmarkPerformance": {
+            "S&P 500": [100, 100.5, 100.2, 101, 101.5, 102],
+            "NASDAQ": [100, 101, 100.8, 102, 103, 104.5]
+          }
+        }
+      },
+      {
+        "portfolioName": "Bonds",
+        "owner": "John Doe",
+        "lastUpdated": "2023-10-01",
+        "performanceData": {
+          "dates": ["2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05", "2023-01-06"],
+          "portfolioPerformance": [100, 101.5, 101, 102, 103, 104],
+          "benchmarkPerformance": {
+            "S&P 500": [100, 100.5, 100.2, 101, 101.5, 102],
+            "NASDAQ": [100, 101, 100.8, 102, 103, 104.5]
+          }
+        }
+      },
+      {
+        "portfolioName": "Real Estate",
+        "owner": "John Doe",
+        "lastUpdated": "2023-10-01",
+        "performanceData": {
+          "dates": ["2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05", "2023-01-06"],
+          "portfolioPerformance": [100, 101.5, 101, 102, 103, 104],
+          "benchmarkPerformance": {
+            "S&P 500": [100, 100.5, 100.2, 101, 101.5, 102],
+            "NASDAQ": [100, 101, 100.8, 102, 103, 104.5]
+          }
+        }
+      },
+      {
+        "portfolioName": "Commodities",
+        "owner": "John Doe",
+        "lastUpdated": "2023-10-01",
+        "performanceData": {
+          "dates": ["2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05", "2023-01-06"],
+          "portfolioPerformance": [100, 101.5, 101, 102, 103, 104],
+          "benchmarkPerformance": {
+            "S&P 500": [100, 100.5, 100.2, 101, 101.5, 102],
+            "NASDAQ": [100, 101, 100.8, 102, 103, 104.5]
+          }
+        }
+      }]
+  }

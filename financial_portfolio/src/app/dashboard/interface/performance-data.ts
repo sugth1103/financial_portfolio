@@ -1,14 +1,13 @@
 
 export interface PerformanceData {
-  dates: string[];
-  portfolioPerformance: number[];
-  benchmarkPerformance: {
-    [key: string]: number[];
-  };
+    lastUpdated:string;
+    owner:string;
+    performanceData:PerformanceDatas
 }
 
-interface Portfolio {
-  portfolioName: string;
+export interface PerformanceDatas {
+  benchmarkPerformance: number[];
+  portfolioPerformance:number[];portfolioName:string;
   owner: string;
   lastUpdated: string;
   performanceData: PerformanceData;

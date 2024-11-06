@@ -17,7 +17,7 @@
 
 .row {
     display: flex;
-    width: 90%;
+    width: 100%;
     /* Set row width to 80% */
     flex-wrap: nowrap;
     /* Prevent items from wrapping */
@@ -55,7 +55,7 @@ canvas {
 
 @media (max-width: 1024px) {
     canvas {
-        width: 80% !important;
+        width: 100% !important;
         /* Reduce chart size for tablets */
     }
 }
@@ -72,7 +72,7 @@ canvas {
     }
 
     canvas {
-        width: 60% !important;
+        width: 100% !important;
         /* Reduce chart size for mobile devices */
     }
 }

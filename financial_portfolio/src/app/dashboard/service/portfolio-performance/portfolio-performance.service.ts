@@ -9,9 +9,9 @@ import { PerformanceData } from '../../interface/performance-data';
 export class PortfolioPerformanceService {
 
   constructor(private httpsService: HttpClient) {}
-  getPortFolioPerformanceData(): Observable<PerformanceData[]> {
-    return this.httpsService.get<PerformanceData[]>('http://localhost:3000/portFolioPerformance').pipe(
-      map((data: PerformanceData[]) => {
+  getPortFolioPerformanceData(): Observable<PerformanceData> {
+    return this.httpsService.get<PerformanceData>('http://localhost:3000/portFolioPerformance').pipe(
+      map((data: PerformanceData) => {
         return data;
       })
     );

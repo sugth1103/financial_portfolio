@@ -12,6 +12,7 @@ import { forkJoin } from 'rxjs';
 import { MarketTrendsService } from './service/market-trends/market-trends.service';
 import { MarketTrends } from './interface/market-trends';
 import { PortfolioPerformanceService } from './service/portfolio-performance/portfolio-performance.service';
+import { PerformanceData, PerformanceDatas } from './interface/performance-data';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,10 +23,9 @@ import { PortfolioPerformanceService } from './service/portfolio-performance/por
 })
 export class DashboardComponent implements OnInit {
   constructor(private assetAllocationService: AssetAllocationService,private marketTrendsService:MarketTrendsService,private portFolioPerformanceData:PortfolioPerformanceService) { }
-  chart:any=[];
-  chart1:any=[];
-  chart2:any=[];
-  chart3:any=[];
+  assetManagementChartData:any=[];
+  performanceMetricsChart:any=[];
+  portfolioPerformanceChart:any=[];
   lineChartOptions!:ChartConfiguration['options'];
   lineChartData!:ChartData<'line'>;
   portFolioLineChartData!:ChartData<'line'>;
@@ -38,31 +38,68 @@ export class DashboardComponent implements OnInit {
   
   ngOnInit():void{
     forkJoin([this.assetAllocationService.getAssetAllocation(),this.marketTrendsService.getMarketTrendsData(),this.portFolioPerformanceData.getPortFolioPerformanceData()]).subscribe(([assetAllocationData,marketTrendsData,portFolioPerformanceData]) => {
-      console.log("data is",assetAllocationData);
-      console.log("market trend is",marketTrendsData);
-      
       this.assetManagementChart(assetAllocationData);
       this.marketTrendsChart(marketTrendsData);
+      this.portFolioPerformance(portFolioPerformanceData.performanceData);
+      this.performanceMetrics();
     });
-    // this.assetAllocationService.getAssetAllocation().subscribe((data:AssetAllocation[]) => {
-    //   console.log("data is",data);
-      
-    //   this.assetManagementChart(data);
-    //   this.marketTrendsChart();
-    // });
     
   }
+  portFolioPerformance(portFolioPerformanceData:PerformanceDatas){
+    const benchmarkPerformance = portFolioPerformanceData?.benchmarkPerformance;
+    const portfolioPerformance = portFolioPerformanceData?.portfolioPerformance;
+    this.portfolioPerformanceChart = new Chart('portfolioPerformanceChart', {
+      type: 'bar',
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [
+          {
+            label: "Benchmark",
+            backgroundColor: "orange",
+            borderWidth: 1,
+            borderColor: "black",
+            data: benchmarkPerformance
+          },
+          {
+            label: "Asset Performance",
+            backgroundColor: "yellow",
+            borderWidth: 1,
+            borderColor: "black",
+            data: portfolioPerformance
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        scales: {
+          // We use this empty structure as a placeholder for dynamic theming.
+          x: {title: {
+            display: true,
+            text: 'periods' // Name of x-axis
+        }},
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Total' // Name of x-axis
+          },
+          }
+        }
+      }
+    });
+  }
   assetManagementChart(data:AssetAllocation[]){
-    const assetTypeList = data.map((data) => data.assetType);
-    const percentage = data.map((data) => data.percentage);
-    this.chart = new Chart('canvas', {
+    const stockDetails=data[0].details;
+    const assetTypeList = stockDetails.map((data) => data.name);
+    const quantity =stockDetails.map((data) => data.quantity);
+    this.assetManagementChartData = new Chart('assetManagementChartData', {
       type: 'bar',
       data: {
         labels: assetTypeList,
         datasets: [
           {
             label: 'Asset Allocation',
-            data: percentage,
+            data: quantity,
             borderWidth: 1,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
@@ -93,76 +130,29 @@ export class DashboardComponent implements OnInit {
           beginAtZero: true,
           title: {
             display: true,
-            text: 'Total' // Name of x-axis
+            text: 'Shares in Quantity' // Name of x-axis
         },
         }
       }
       },
       
     });
-    this.chart1 = new Chart('canvas1', {
+   
+  }
+  performanceMetrics(){
+    this.performanceMetricsChart = new Chart('performanceMetricsChart', {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [
-          {
-            label: 'Market Trends',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-    this.chart2 = new Chart('canvas2', {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Apple Inc', 'Microsoft Corp.', 'Amazon.com Inc.', 'Alphapet Inc.'],
         datasets: [
           {
             label: 'Performance Metrics',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5],
             borderWidth: 1,
           },
         ],
       },
       options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-    this.chart3 = new Chart('canvas3', {
-      type: 'bar',
-      data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-        datasets: [
-          {
-            label: "Benchmark",
-            backgroundColor: "orange",
-            borderWidth: 1,
-            borderColor: "black",
-            data: [6,10,9,6,14,12]
-          },
-          {
-            label: "Asset Performance",
-            backgroundColor: "yellow",
-            borderWidth: 1,
-            borderColor: "black",
-            data: [10,8,6,5,12,8]
-          }
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
         scales: {
           // We use this empty structure as a placeholder for dynamic theming.
           x: {title: {
@@ -173,11 +163,11 @@ export class DashboardComponent implements OnInit {
             beginAtZero: true,
             title: {
               display: true,
-              text: 'Total' // Name of x-axis
+              text: 'Growth in Percentage' // Name of x-axis
           },
           }
         }
-      }
+      },
     });
   }
   marketTrendsChart(MarketTrendsData:MarketTrends[]){
